@@ -17,7 +17,6 @@ public class RoleEntityTest {
         RoleEntity role = repo.findByName("ADMINISTRATOR");
         System.out.println(role);
 
-        RoleEntity role2;
         try {
             role = repo.findByName("ADMINISTRATOR");
         } catch (Exception e) {

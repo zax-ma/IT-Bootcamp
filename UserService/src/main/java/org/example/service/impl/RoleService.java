@@ -18,7 +18,7 @@ public class RoleService {
         try {
             role = repository.findByName(name);
         } catch (Exception e) {
-            throw new RuntimeException("Role is not exist");
+            throw new RuntimeException("Role already exist");
         }
         return role;
     }

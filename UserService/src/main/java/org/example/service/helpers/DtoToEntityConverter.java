@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
 @Component
 @NoArgsConstructor
 public class DtoToEntityConverter implements Converter<UserRegistrationDto, UserEntity> {
@@ -25,6 +27,7 @@ public class DtoToEntityConverter implements Converter<UserRegistrationDto, User
         FieldHelper helper = new FieldHelper();
 
         return new UserEntity(
+                helper.getUuid().toString(),
                 source.getSurname(),
                 source.getName(),
                 source.getMiddle_name(),

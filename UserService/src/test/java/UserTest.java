@@ -54,6 +54,7 @@ public class UserTest {
         FieldHelper helper = new FieldHelper();
 
         UserEntity user = new UserEntity(
+                helper.getUuid().toString(),
                 newUser.getSurname(),
                 newUser.getName(),
                 newUser.getMiddle_name(),
@@ -64,7 +65,7 @@ public class UserTest {
 
         System.out.println(user);
 
-        System.out.println(converterFrom.convert(new UserEntity("java", "hello", "world", "java@mail.com",
+        System.out.println(converterFrom.convert(new UserEntity("121212","java", "hello", "world", "java@mail.com",
                 new RoleEntity("19290144", "ADMINISTRATOR"), LocalDateTime.now(), LocalDateTime.now())));
 
         userService.saveUser(user);

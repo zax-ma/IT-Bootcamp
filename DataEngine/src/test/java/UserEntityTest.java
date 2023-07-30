@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootTest(classes = DataEngineBoot.class)
 public class UserEntityTest {
@@ -18,12 +20,14 @@ public class UserEntityTest {
     @Test
     public void saveUserTest(){
 
+        Set<RoleEntity> roles = new HashSet<>();
+        roles.add(new RoleEntity("e6907099-d6c7-4c34-941b-8607d7943284","ADMINISTRATOR"));
 
-        UserEntity user = new UserEntity("zaxarevich",
+        UserEntity user = new UserEntity("e6907022-d6c7-4c34-941b-8607d7943284","zaxarevich",
                 "maria",
                 "aleksandrovna",
                 "maria@mail.com",
-                new RoleEntity("1437a54b-2c77-42ff-84c1-aca35378045f","ADMINISTRATOR"),
+                new RoleEntity("e6907099-d6c7-4c34-941b-8607d7943284","ADMINISTRATOR"),
                 LocalDateTime.now(),
                 LocalDateTime.now());
 

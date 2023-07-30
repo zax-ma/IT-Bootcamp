@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -36,7 +37,11 @@ public class UserEntity {
 
 
     @ManyToOne
-    @PrimaryKeyJoinColumn(name = "role_name", referencedColumnName = "role_id")
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     private RoleEntity role;
 
     @Column(name = "dt_create")
@@ -45,7 +50,8 @@ public class UserEntity {
     @Column(name = "dt_update")
     private LocalDateTime dt_update;
 
-    public UserEntity(String surname, String name, String middle_name, String email, RoleEntity role, LocalDateTime dt_create, LocalDateTime dt_update) {
+    public UserEntity(String uuid, String surname, String name, String middle_name, String email, RoleEntity role, LocalDateTime dt_create, LocalDateTime dt_update) {
+        this.uuid = uuid;
         this.surname = surname;
         this.name = name;
         this.middle_name = middle_name;
