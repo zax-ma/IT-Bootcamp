@@ -24,15 +24,19 @@ public class UserEntity {
     private String uuid;
 
     @Column(name = "surname")
+    @NotNull
     private String surname;
 
     @Column(name = "name")
+    @NotNull
     private String name;
 
     @Column(name = "middle_name")
+    @NotNull
     private String middle_name;
 
     @Column(name = "email")
+    @NotNull
     private String email;
 
 

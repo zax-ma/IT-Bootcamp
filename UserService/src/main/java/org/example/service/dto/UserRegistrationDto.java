@@ -3,9 +3,7 @@ package org.example.service.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
 import lombok.*;
-import org.example.core.entity.RoleEntity;
 
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,33 +16,34 @@ public class UserRegistrationDto {
     @NotBlank
     @NotEmpty
     @Size(max = 40)
-    @Pattern(regexp = "^\\w+")
+    @Pattern(regexp = "^\\w+", message = "Только латинские буквы")
     private String surname;
 
     @JsonProperty("name")
     @NotBlank
     @NotEmpty
     @Size(max = 20)
-    @Pattern(regexp = "^\\w+")
+    @Pattern(regexp = "^\\w+", message = "Только латинские буквы")
     private String name;
 
     @JsonProperty("middle_name")
     @NotBlank
     @NotEmpty
     @Size(max = 40)
-    @Pattern(regexp = "^\\w+")
+    @Pattern(regexp = "^\\w+", message = "Только латинские буквы")
     private String middle_name;
 
     @JsonProperty("email")
     @NotBlank
     @NotEmpty
     @Size(max = 50)
-    @Email(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")  //^[a-zA-Z0-9_!#$%&'*+/=?``{|}~^.-]+@[a-zA-Z0-9.-]+$
+    @Email(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Email должен быть вида \"user@mail.com\"")  //^[a-zA-Z0-9_!#$%&'*+/=?``{|}~^.-]+@[a-zA-Z0-9.-]+$
     private String email;
 
     @JsonProperty("role")
     @NotBlank
     @NotEmpty
+    @Pattern(regexp = "^\\w+", message = "Только латинские буквы")
     private String role;
 
     @ToString

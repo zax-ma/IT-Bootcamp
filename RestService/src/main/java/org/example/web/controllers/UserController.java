@@ -1,5 +1,6 @@
 package org.example.web.controllers;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.core.entity.UserEntity;
 import org.example.service.api.IUserService;
@@ -32,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/registration")
-    public ResponseEntity<?> create(@RequestBody UserRegistrationDto dto){
+    public ResponseEntity<?> create(@Valid @RequestBody UserRegistrationDto dto){
         log.info("Request for new user creation");
         UserEntity newUser = this.converter.convert(dto);
         service.saveUser(newUser);

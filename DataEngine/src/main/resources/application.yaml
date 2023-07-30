@@ -10,6 +10,8 @@ spring:
     username: root
     password: ItBoot2023
   jpa:
+    properties:
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
